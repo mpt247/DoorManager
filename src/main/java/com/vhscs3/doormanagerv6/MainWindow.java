@@ -688,7 +688,7 @@ public class MainWindow extends javax.swing.JFrame {
         // Launch a Static JColorChooser with the current color set as default.
         //Updates the Color label to the selected color.
         Color color = JColorChooser.showDialog(MainWindow.this, 
-                                              "CHoose schedule, color:", 
+                                              "Choose schedule, color:", 
                                               schedules_label_colorindicator.getBackground());
         schedules_label_colorindicator.setOpaque(true);
         
@@ -866,7 +866,6 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buildschedulestables() 
     {
-        //
         
         
         String[] columnHeaders = {"Name", "Description", "Color", "Open Times"};
