@@ -29,7 +29,7 @@ public class MainWindow extends javax.swing.JFrame {
     private HashMap<String, Door>       doors;             //Collection of doors, door name is the key
     private HashMap<String, Schedule>   schedules;         //Collection of schedules, schedule name is the key
     private HashMap<Integer, Badge>     badges;            //Collection of BADGES, employeeID is the key
-    private JComponent[] scheduleComponents;                 //Form elements for schedule
+    private JComponent[]                scheduleComponents;//Form elements for schedule
 
     public MainWindow() {
         
@@ -118,7 +118,6 @@ public class MainWindow extends javax.swing.JFrame {
         schedules_panel_editor = new javax.swing.JPanel();
         schedules_label_name = new javax.swing.JLabel();
         schedules_textfield_name = new javax.swing.JTextField();
-        schedules_textfield_description = new javax.swing.JTextField();
         schedules_label_description = new javax.swing.JLabel();
         schedules_button_color = new javax.swing.JButton();
         schedules_label_color = new javax.swing.JLabel();
@@ -129,6 +128,8 @@ public class MainWindow extends javax.swing.JFrame {
         schedules_button_deletetime = new javax.swing.JButton();
         schedules_scrollpane_times = new javax.swing.JScrollPane();
         schedules_table_times = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        schedules_textarea_description = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -139,7 +140,7 @@ public class MainWindow extends javax.swing.JFrame {
         dashBoard_panel.setLayout(dashBoard_panelLayout);
         dashBoard_panelLayout.setHorizontalGroup(
             dashBoard_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1144, Short.MAX_VALUE)
+            .addGap(0, 1156, Short.MAX_VALUE)
         );
         dashBoard_panelLayout.setVerticalGroup(
             dashBoard_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +370,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(doors_panel_editorLayout.createSequentialGroup()
                         .addComponent(doors_scrollpane_logs, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 27, Short.MAX_VALUE))))
+                        .addGap(0, 39, Short.MAX_VALUE))))
         );
         doors_panel_editorLayout.setVerticalGroup(
             doors_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,6 +487,11 @@ public class MainWindow extends javax.swing.JFrame {
         schedules_botton_add.setText("Add");
 
         schedules_botton_delete.setText("Delete");
+        schedules_botton_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schedules_botton_deleteActionPerformed(evt);
+            }
+        });
 
         schedules_botton_save.setText("Save");
 
@@ -556,6 +562,10 @@ public class MainWindow extends javax.swing.JFrame {
         schedules_scrollpane_times.setViewportView(schedules_table_times);
         schedules_table_times.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
+        schedules_textarea_description.setColumns(20);
+        schedules_textarea_description.setRows(5);
+        jScrollPane1.setViewportView(schedules_textarea_description);
+
         javax.swing.GroupLayout schedules_panel_editorLayout = new javax.swing.GroupLayout(schedules_panel_editor);
         schedules_panel_editor.setLayout(schedules_panel_editorLayout);
         schedules_panel_editorLayout.setHorizontalGroup(
@@ -574,44 +584,43 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(schedules_button_color)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(schedules_label_colorindicator, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(schedules_textfield_name)
-                        .addComponent(schedules_textfield_description, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))
                     .addGroup(schedules_panel_editorLayout.createSequentialGroup()
                         .addComponent(schedules_button_addtime)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(schedules_button_edittime)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(schedules_button_deletetime))))
+                        .addComponent(schedules_button_deletetime))
+                    .addComponent(schedules_textfield_name, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(108, 108, 108))
         );
         schedules_panel_editorLayout.setVerticalGroup(
             schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedules_panel_editorLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(48, 48, 48)
                 .addGroup(schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schedules_label_name)
                     .addComponent(schedules_textfield_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(9, 9, 9)
                 .addGroup(schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(schedules_textfield_description, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(schedules_label_description))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(schedules_label_description)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(schedules_button_color)
-                        .addComponent(schedules_label_color))
                     .addGroup(schedules_panel_editorLayout.createSequentialGroup()
                         .addComponent(schedules_label_colorindicator, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
+                        .addGap(3, 3, 3))
+                    .addComponent(schedules_label_color)
+                    .addComponent(schedules_button_color))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(schedules_panel_editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(schedules_label_times)
                     .addComponent(schedules_button_addtime)
                     .addComponent(schedules_button_edittime)
-                    .addComponent(schedules_button_deletetime))
+                    .addComponent(schedules_button_deletetime)
+                    .addComponent(schedules_label_times))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(schedules_scrollpane_times, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout schedules_panelLayout = new javax.swing.GroupLayout(schedules_panel);
@@ -624,7 +633,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(schedules_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(schedules_CRUD_bottons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(schedules_panel_editor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(schedules_panelLayout.createSequentialGroup()
+                        .addComponent(schedules_panel_editor, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         schedules_panelLayout.setVerticalGroup(
@@ -632,7 +643,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(schedules_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(schedules_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(schedules_ScrollPane_display)
+                    .addComponent(schedules_ScrollPane_display, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
                     .addGroup(schedules_panelLayout.createSequentialGroup()
                         .addComponent(schedules_CRUD_bottons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -654,7 +665,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainWindow_tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1144, Short.MAX_VALUE)
+            .addComponent(mainWindow_tabbedPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,47 +676,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void doors_comboBox_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_1ActionPerformed
-
-    private void doors_comboBox_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_2ActionPerformed
-
-    private void doors_comboBox_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_3ActionPerformed
-
-    private void doors_comboBox_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_4ActionPerformed
-
-    private void doors_comboBox_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_5ActionPerformed
-
-    private void doors_comboBox_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_6ActionPerformed
-
-    private void doors_comboBox_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doors_comboBox_7ActionPerformed
-
-    private void schedules_button_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schedules_button_colorActionPerformed
-        // Launch a Static JColorChooser with the current color set as default.
-        //Updates the Color label to the selected color.
-        Color color = JColorChooser.showDialog(MainWindow.this, 
-                                              "Choose schedule, color:", 
-                                              schedules_label_colorindicator.getBackground());
-        schedules_label_colorindicator.setOpaque(true);
-        
-        if (color != null) {
-            schedules_label_colorindicator.setBackground(color);
-        }
-    }//GEN-LAST:event_schedules_button_colorActionPerformed
 
     private void schedules_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_schedules_tableMouseClicked
         //Method gets the selected row and uses the ro to get the name in colum 0.
@@ -723,13 +693,75 @@ public class MainWindow extends javax.swing.JFrame {
         Color color = schedule.getColor();
         ArrayList<DoorTime> times = schedule.getTimes();
         
-        schedules_textfield_name.setText(name);
-        schedules_textfield_description.setText(description);
+        schedules_textarea_description.setText(name);
+        schedules_textfield_name.setText(description);
         schedules_label_colorindicator.setBackground(color);
         schedules_label_colorindicator.setOpaque(true);
         
         setGroupEnabled(true, scheduleComponents);
     }//GEN-LAST:event_schedules_tableMouseClicked
+
+    private void schedules_botton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schedules_botton_deleteActionPerformed
+        //Delete button for schedules from
+        DefaultTableModel dfm = (DefaultTableModel) schedules_table.getModel();
+        
+        int row = schedules_table.getSelectedRow();
+        String name = (String) dfm.getValueAt(row, 0);
+        
+        schedules.remove(name);
+        
+        buildschedulestables();
+        
+        setGroupEnabled(false, scheduleComponents);
+        
+        schedules_textarea_description.setText("");
+        schedules_textfield_name.setText("");
+        schedules_label_colorindicator.setBackground(new Color(214, 217, 224));
+        schedules_label_colorindicator.setOpaque(false);
+        ((DefaultTableModel)schedules_table_times.getModel()).setRowCount(0);
+        
+    }//GEN-LAST:event_schedules_botton_deleteActionPerformed
+
+    private void doors_comboBox_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_7ActionPerformed
+
+    private void doors_comboBox_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_6ActionPerformed
+
+    private void doors_comboBox_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_5ActionPerformed
+
+    private void doors_comboBox_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_4ActionPerformed
+
+    private void doors_comboBox_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_2ActionPerformed
+
+    private void doors_comboBox_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_3ActionPerformed
+
+    private void doors_comboBox_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doors_comboBox_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doors_comboBox_1ActionPerformed
+
+    private void schedules_button_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schedules_button_colorActionPerformed
+        // Launch a Static JColorChooser with the current color set as default.
+        //Updates the Color label to the selected color.
+        Color color = JColorChooser.showDialog(MainWindow.this,
+            "Choose schedule, color:",
+            schedules_label_colorindicator.getBackground());
+        schedules_label_colorindicator.setOpaque(true);
+
+        if (color != null) {
+            schedules_label_colorindicator.setBackground(color);
+        }
+    }//GEN-LAST:event_schedules_button_colorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -808,6 +840,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane mainWindow_tabbedPane;
     private javax.swing.JPanel schedules_CRUD_bottons;
     private javax.swing.JScrollPane schedules_ScrollPane_display;
@@ -829,7 +862,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane schedules_scrollpane_times;
     private javax.swing.JTable schedules_table;
     private javax.swing.JTable schedules_table_times;
-    private javax.swing.JTextField schedules_textfield_description;
+    private javax.swing.JTextArea schedules_textarea_description;
     private javax.swing.JTextField schedules_textfield_name;
     // End of variables declaration//GEN-END:variables
 
@@ -910,7 +943,7 @@ public class MainWindow extends javax.swing.JFrame {
         scheduleComponents[2] = schedules_botton_save;
         scheduleComponents[3] = schedules_textfield_name;
         scheduleComponents[4] = schedules_button_color;
-        scheduleComponents[5] = schedules_textfield_description;
+        scheduleComponents[5] = schedules_textarea_description;
         scheduleComponents[6] = schedules_button_addtime;
         scheduleComponents[7] = schedules_button_edittime;
         scheduleComponents[8] = schedules_button_deletetime;
