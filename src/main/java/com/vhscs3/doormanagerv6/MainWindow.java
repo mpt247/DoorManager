@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JColorChooser;
+import javax.swing.JComponent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,9 +26,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainWindow extends javax.swing.JFrame {
     
-    HashMap<String, Door>       doors;             //Collection of doors, door name is the key
-    HashMap<String, Schedule>   schedules;         //Collection of schedules, schedule name is the key
-    HashMap<Integer, Badge>     badges;            //Collection of BADGES, employeeID is the key
+    private HashMap<String, Door>       doors;             //Collection of doors, door name is the key
+    private HashMap<String, Schedule>   schedules;         //Collection of schedules, schedule name is the key
+    private HashMap<Integer, Badge>     badges;            //Collection of BADGES, employeeID is the key
+    private JComponent[] scheduleComponents;                 //Form elements for schedule
 
     public MainWindow() {
         
@@ -46,7 +48,15 @@ public class MainWindow extends javax.swing.JFrame {
         
         initComponents();
         
+        scheduleComponents = new JComponent[10];
+        buildScheduleGroup();
+        buildDoorGroup();
+        
+        setGroupEnabled(false, scheduleComponents);
+        DoorGroupEnabled(false);
+        
         buildschedulestables();
+        
     }
 
     /**
@@ -890,6 +900,36 @@ public class MainWindow extends javax.swing.JFrame {
         
         DefaultTableModel dfm = new DefaultTableModel(data, columnHeaders);
         schedules_table.setModel(dfm);
+    }
+
+    private void buildScheduleGroup() {
+        scheduleComponents[0] = schedules_botton_edit;
+        scheduleComponents[1] = schedules_botton_delete;
+        scheduleComponents[2] = schedules_botton_save;
+        scheduleComponents[3] = schedules_textfield_name;
+        scheduleComponents[4] = schedules_button_color;
+        scheduleComponents[5] = schedules_textfield_description;
+        scheduleComponents[6] = schedules_button_addtime;
+        scheduleComponents[7] = schedules_button_edittime;
+        scheduleComponents[8] = schedules_button_deletetime;
+        scheduleComponents[9] = schedules_table_times;
+    }
+
+    private void buildDoorGroup() {
+        
+    }
+
+    private void setGroupEnabled(boolean state, JComponent[] group) {
+        
+        for (JComponent component : group) 
+        {
+            component.setEnabled(state);
+            
+        }
+    }
+
+    private void DoorGroupEnabled(boolean b) {
+        
     }
     
 }
