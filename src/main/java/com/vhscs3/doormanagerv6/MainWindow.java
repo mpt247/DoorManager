@@ -727,6 +727,8 @@ public class MainWindow extends javax.swing.JFrame {
         schedules_textfield_description.setText(description);
         schedules_label_colorindicator.setBackground(color);
         schedules_label_colorindicator.setOpaque(true);
+        
+        setGroupEnabled(true, scheduleComponents);
     }//GEN-LAST:event_schedules_tableMouseClicked
 
     /**
