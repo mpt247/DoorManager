@@ -69,6 +69,16 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        schedules_dialog_times = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         mainWindow_tabbedPane = new javax.swing.JTabbedPane();
         dashBoard_panel = new javax.swing.JPanel();
         doors_panel = new javax.swing.JPanel();
@@ -134,6 +144,84 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+
+        schedules_dialog_times.setMinimumSize(new java.awt.Dimension(300, 200));
+        schedules_dialog_times.setModal(true);
+        schedules_dialog_times.setResizable(false);
+        schedules_dialog_times.setSize(new java.awt.Dimension(250, 250));
+
+        jLabel1.setText("Select OPEN and CLOSE time");
+
+        jLabel2.setText("Open Time");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HOUR", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MINUTE", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+
+        jLabel3.setText("Close Time");
+
+        jButton1.setText("Save");
+
+        jButton2.setText("Cancel");
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HOUR", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MINUTE", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+
+        javax.swing.GroupLayout schedules_dialog_timesLayout = new javax.swing.GroupLayout(schedules_dialog_times.getContentPane());
+        schedules_dialog_times.getContentPane().setLayout(schedules_dialog_timesLayout);
+        schedules_dialog_timesLayout.setHorizontalGroup(
+            schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1))
+                    .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, schedules_dialog_timesLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(143, Short.MAX_VALUE))
+        );
+        schedules_dialog_timesLayout.setVerticalGroup(
+            schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(schedules_dialog_timesLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(schedules_dialog_timesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -535,6 +623,11 @@ public class MainWindow extends javax.swing.JFrame {
         schedules_label_times.setText("Times");
 
         schedules_button_addtime.setText("Add Time");
+        schedules_button_addtime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schedules_button_addtimeActionPerformed(evt);
+            }
+        });
 
         schedules_button_edittime.setText("Edit Time");
 
@@ -770,6 +863,12 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_schedules_button_colorActionPerformed
 
+    private void schedules_button_addtimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schedules_button_addtimeActionPerformed
+        
+        resetTimesDialog();
+        schedules_dialog_times.setVisible(true);
+    }//GEN-LAST:event_schedules_button_addtimeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -844,6 +943,15 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable doors_table_doors;
     private javax.swing.JTable doors_table_logs;
     private javax.swing.JTextField doors_textfield_doorname;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -859,6 +967,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton schedules_button_color;
     private javax.swing.JButton schedules_button_deletetime;
     private javax.swing.JButton schedules_button_edittime;
+    private javax.swing.JDialog schedules_dialog_times;
     private javax.swing.JLabel schedules_label_color;
     private javax.swing.JLabel schedules_label_colorindicator;
     private javax.swing.JLabel schedules_label_description;
@@ -972,6 +1081,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void DoorGroupEnabled(boolean b) {
         
+    }
+
+    private void resetTimesDialog() {
+       
     }
     
 }
