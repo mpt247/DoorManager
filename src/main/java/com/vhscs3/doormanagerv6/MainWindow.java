@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JColorChooser;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -707,6 +708,12 @@ public class MainWindow extends javax.swing.JFrame {
         
         int row = schedules_table.getSelectedRow();
         String name = (String) dfm.getValueAt(row, 0);
+        
+        int confirmation = JOptionPane.showConfirmDialog(null, "Confirm: Delete " + name + "schedule ?");
+        
+        if (confirmation != JOptionPane.YES_OPTION) {
+            return;
+        }
         
         schedules.remove(name);
         
